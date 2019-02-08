@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% load static %}
+    {% for i in u %}
+    <tr>
+    <td>{{ i.sender }}</td><td>{{ i.receiver }}</td><td>{{ i.phone }}</td><td>{{ i.address }}</td><td>{{ i.cargoname }}</td><td>{{ i.postmanname }}</td>
+    <img src="{% static i.cargonum %}" alt="二维码" height=100 width=100 />
+    </tr>
+    {% endfor %}
+
+    <form action="/addcargo/" method="get" accept-charset="utf-8">
+		sender : <input type="text" name="sender">
+		receiver : <input type="text" name="receiver">
+		phone : <input type="text" name="phone">
+		address : <input type="text" name="address">
+		cargoname : <input type="text" name="cargoname">
+		postmanname : <input type="text" name="postmanname">
+		<input type="submit" name="提交">
+	</form>
+</body>
+</html>
